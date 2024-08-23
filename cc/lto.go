@@ -140,9 +140,9 @@ func (lto *lto) flags(ctx ModuleContext, flags Flags) Flags {
 		// performance.
 		if !ctx.Darwin() {
 			if ctx.isAfdoCompile(ctx) {
-				ltoLdFlags = append(ltoLdFlags, "-Wl,-plugin-opt,-import-instr-limit=40")
+				ltoLdFlags = append(ltoLdFlags, "-Wl,-plugin-opt,-import-instr-limit=140")
 			} else {
-				ltoLdFlags = append(ltoLdFlags, "-Wl,-plugin-opt,-import-instr-limit=5")
+				ltoLdFlags = append(ltoLdFlags, "-Wl,-plugin-opt,-import-instr-limit=40")
 			}
 		}
 

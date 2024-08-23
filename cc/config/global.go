@@ -31,7 +31,7 @@ var (
 	// will save bytes in build.ninja so they aren't repeated for every file
 	commonGlobalCflags = []string{
 		// Enable some optimization by default.
-		"-O2",
+		"-O3",
 
 		// Warnings enabled by default. Reference:
 		// https://clang.llvm.org/docs/DiagnosticsReference.html
@@ -534,8 +534,8 @@ func init() {
 	// These are tied to the version of LLVM directly in external/llvm, so they might trail the host prebuilts
 	// being used for the rest of the build process.
 	pctx.SourcePathVariable("RSClangBase", "prebuilts/clang/host")
-	pctx.SourcePathVariable("RSClangVersion", "clang-3289846")
-	pctx.SourcePathVariable("RSReleaseVersion", "3.8")
+	pctx.SourcePathVariable("RSClangVersion", "clang-r510928")
+	pctx.SourcePathVariable("RSReleaseVersion", "18")
 	pctx.StaticVariable("RSLLVMPrebuiltsPath", "${RSClangBase}/${HostPrebuiltTag}/${RSClangVersion}/bin")
 	pctx.StaticVariable("RSIncludePath", "${RSLLVMPrebuiltsPath}/../lib64/clang/${RSReleaseVersion}/include")
 
